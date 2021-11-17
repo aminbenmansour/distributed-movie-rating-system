@@ -20,5 +20,5 @@ class ProductViewSet(viewsets.ViewSet):
         pass
 
     # /api/products/<str:id>
-    def delete(self, request, pk=None):
+    def destroy(self, request, pk=None):
         pass
