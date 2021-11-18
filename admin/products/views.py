@@ -4,17 +4,22 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Product, User
+from .producer import publish
 from .serializers import ProductSerializer
 
 import random
+
+
 class ProductViewSet(viewsets.ViewSet):
 
     # /api/products
     def list(self, request):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
+        # publishing an event
+        # publish()
         return Response(serializer.data)
-    
+
     # /api/products
     def create(self, request):
         serializer = ProductSerializer(data=request.data)
@@ -35,7 +40,6 @@ class ProductViewSet(viewsets.ViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
-
 
     # /api/products/<str:pk>
     def destroy(self, request, pk=None):
