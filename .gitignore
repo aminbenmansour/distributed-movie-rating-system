@@ -128,5 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#MySQL datatbase
+# MySQL datatbase
 .dbdata
+
+# PyCharm IDE
+.idea
