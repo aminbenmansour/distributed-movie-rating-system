@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    # We used this command because Dockerfile above will be used multiple times
+    command: 'python manage.py runserver 0.0.0.0:8000'
     ports:
       - 8000:8000
     volumes:
