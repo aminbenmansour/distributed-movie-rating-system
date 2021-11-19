@@ -5,6 +5,7 @@ import Menu from './components/Menu';
 import Products from './admin/Products';
 
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -16,7 +17,11 @@ function App() {
           <Menu />
 
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <Products />
+            <BrowserRouter>
+              <Routes>
+                <Route path='/admin/products' element={<Products />} />
+              </Routes>
+            </BrowserRouter>
           </main>
         </div>
       </div>
