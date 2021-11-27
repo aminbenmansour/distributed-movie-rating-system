@@ -4,10 +4,13 @@ import pika
 
 import os, django
 
-from products.models import Product
-
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "admin.settings")
 django.setup()
+
+from products.models import Product
+
+
+
 
 params = pika.URLParameters('amqps://unqrxaqr:mifD-tzWnYRcqylbYfWkUYrEdsrSIEMi@jaguar.rmq.cloudamqp.com/unqrxaqr')
 
